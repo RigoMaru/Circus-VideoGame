@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#f7efd9"/><meta name="description" content="Step right up. A handcrafted 3D circus arcade adventure. Three acts, one button, and one more show."/>
+  <title>CIRQUE — One More Show</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
+</head>
+<body>
+  <div id="world" aria-label="3D circus arena"></div>
+  <div id="vignette"></div><div id="flash"></div>
+  <header class="topbar">
+    <a class="brand" href="#" id="home-link" aria-label="Cirque home"><span class="brand-star">✦</span> CIRQUE <span class="brand-caption">A LITTLE EXTRAORDINARY.</span></a>
+    <nav aria-label="Game tools"><button id="sound-btn" class="icon-button" aria-label="Mute sound" title="Sound · M">♫</button><button id="settings-btn" class="icon-button" aria-label="Settings" title="Settings">☷</button><button id="fullscreen-btn" class="icon-button" aria-label="Toggle fullscreen" title="Fullscreen">⛶</button></nav>
+  </header>
+  <main id="menu">
+    <div class="hero-copy">
+      <div class="eyebrow"><span></span> THE BIG TOP IS BACK IN TOWN</div>
+      <h1>CIRQUE<span class="title-star">✦</span></h1>
+      <div class="subtitle"><span></span> ONE MORE SHOW <span></span></div>
+      <p class="intro">A little courage. A little chaos.<br/>A whole lot of <em>ta-da.</em></p>
+      <p class="description">Leap through fire. Roll with the unexpected.<br/>Your standing ovation is one perfect jump away.</p>
+      <div class="play-row"><button id="play-btn" class="primary" disabled><span id="play-label">Raising the curtain…</span><span class="button-arrow">↗</span></button><button id="how-btn" class="text-button">How to play <span>↗</span></button></div>
+      <div class="mode-row" role="group" aria-label="Choose game mode"><button data-mode="show" class="mode active" aria-pressed="true">THE SHOW <small>90 seconds</small></button><button data-mode="daily" class="mode" aria-pressed="false">DAILY TICKET <small>A fresh challenge</small></button><button data-mode="encore" class="mode" aria-pressed="false">ENCORE <small>Go on forever</small></button></div>
+      <div class="record"><span>♛</span> YOUR PERSONAL BEST <strong id="menu-best">000000</strong><span id="mode-note">Three acts. Make them count.</span></div>
+    </div>
+    <div class="scene-caption"><span class="round-seal">100%<small>PURE<br/>CIRCUS</small></span><p>MEET YOUR NEW<br/><strong>mane attraction.</strong><span>✦ ORIGINAL 3D CHARACTERS</span></p></div>
+    <div class="playbill"><div class="playbill-heading">TONIGHT’S<br/><b>PLAYBILL</b><span>↘</span></div><div><span class="act-number">01</span><p>THE RING OF FIRE<small>Bring a little bravery.</small></p><span class="act-icon">◎</span></div><div><span class="act-number">02</span><p>ROLL WITH IT<small>Find your feet. Again.</small></p><span class="act-icon">◉</span></div><div><span class="act-number">03</span><p>THE GRAND FINALE<small>Leave them wanting more.</small></p><span class="act-icon">✦</span></div></div>
+  </main>
+  <section id="hud" class="hidden" aria-label="Game status">
+    <div class="hud-left"><span class="label">THE APPLAUSE</span><strong id="score">000000</strong><div id="hearts" aria-label="3 lives">♥ ♥ ♥</div></div>
+    <div class="hud-center"><span id="act-label" class="label">ACT 01 / 03</span><strong id="act-title">The Ring of Fire</strong><div class="progress"><div id="progress-fill"></div></div></div>
+    <div class="hud-right"><button id="pause-btn" class="icon-button" aria-label="Pause game">Ⅱ</button><div><span class="label">COMBO</span><strong id="combo">×1</strong></div></div>
+    <div id="announcement" class="hidden"><span id="announce-small"></span><strong id="announce-title"></strong><p id="announce-sub"></p></div>
+    <div id="feedback" role="status" aria-live="polite"></div>
+    <div class="game-bottom"><div class="control-legend"><kbd>SPACE</kbd> JUMP <span>·</span> <kbd>X</kbd> AIR TRICK <span>·</span> <kbd>ESC</kbd> PAUSE</div><div id="time-left">90s TO THE OVATION</div></div>
+    <p class="portrait-note">A BIGGER BIG TOP?<br/>Turn your phone sideways.</p>
+    <div id="touch-controls"><button id="flip-btn" aria-label="Air trick">↻<small>TRICK</small></button><button id="jump-btn" aria-label="Jump">↑<small>JUMP</small></button></div>
+  </section>
+  <footer id="footer"><span><i></i> NO TICKETS. JUST GOOD TIMES.</span><span>HANDCRAFTED IN BLENDER <b>✦</b> MADE TO BE PLAYED</span><span>EST. 2026</span></footer>
+  <dialog id="how-dialog"><button class="close" aria-label="Close instructions">×</button><span class="eyebrow">YOUR MOMENT IN THE SPOTLIGHT</span><h2>Big thrills.<br/>Little buttons.</h2><div class="instruction"><kbd>SPACE / ↑ / W</kbd><div><b>Leap into the limelight.</b><p>Jump just before a hoop or barrel reaches you. Follow the golden stars to find your timing.</p></div></div><div class="instruction"><kbd>X</kbd><div><b>Add a little showmanship.</b><p>Press while rising to somersault. Land it for bonus applause. One jump, one trick.</p></div></div><div class="instruction"><span class="instruction-heart">♥</span><div><b>The show goes on.</b><p>You have three hearts. Chain successful jumps for up to 5× points. Finish all three acts for a heart bonus.</p></div></div><p class="mobile-note">On a touch screen, use the JUMP and TRICK buttons. Try Chill mode in Settings for a slower show and five hearts.</p><button id="how-play" class="primary">LET’S MAKE A SCENE <span>↗</span></button></dialog>
+  <dialog id="settings-dialog"><button class="close" aria-label="Close settings">×</button><span class="eyebrow">MAKE YOURSELF AT HOME</span><h2>Your kind of circus.</h2><label class="setting">Music <input id="music-volume" type="range" min="0" max="100" value="48"/></label><label class="setting">Sound effects <input id="fx-volume" type="range" min="0" max="100" value="65"/></label><label class="setting">Chill mode <input id="chill" type="checkbox"/></label><p class="setting-note">A slower pace. Five hearts. A separate personal best. Applies to your next show.</p><label class="setting">Reduced motion <input id="reduced-motion" type="checkbox"/></label><label class="setting">Graphics <select id="quality"><option value="high">The full spectacle</option><option value="low">Easy on my device</option></select></label><p class="setting-note">Music: “One More Show” · an original, adaptive carnival score.<br/>Your settings and records stay on this device.</p></dialog>
+  <dialog id="pause-dialog"><span class="eyebrow">A LITTLE INTERMISSION</span><h2>Catch your breath.</h2><p>The spotlight will wait for you.</p><button id="resume-btn" class="primary">ON WITH THE SHOW <span>↗</span></button><button id="quit-btn" class="text-button">Back to the big top</button></dialog>
+  <dialog id="results-dialog"><span class="eyebrow" id="result-kicker">THE CROWD WANTS MORE</span><h2 id="result-title">One more show?</h2><div class="result-score"><strong id="result-score">0</strong><span id="rank">B</span></div><p id="new-record" class="new-record"></p><div class="result-stats"><div><strong id="stat-cleared">0</strong><span>STUNTS</span></div><div><strong id="stat-combo">0</strong><span>BEST STREAK</span></div><div><strong id="stat-tricks">0</strong><span>AIR TRICKS</span></div></div><p id="result-tip">The golden stars show the way. Jump a little before the hoop.</p><button id="retry-btn" class="primary">ONE MORE SHOW <span>↻</span></button><div class="result-actions"><button id="results-home" class="text-button">Back to the big top</button><button id="share-btn" class="text-button">Copy score ↗</button></div></dialog>
+  <div id="load-error" class="hidden" role="alert"><h2>The curtain got stuck.</h2><p>We couldn’t load the 3D stage. Please reload, or try a browser with WebGL enabled.</p><button onclick="location.reload()" class="primary">TRY AGAIN ↻</button></div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
